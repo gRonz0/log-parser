@@ -1,4 +1,4 @@
-<#
+echo "<#
 .SYNOPSIS
     Log Parser Script
 
@@ -9,8 +9,7 @@
     The path to the log file to be parsed.
 
 .EXAMPLE
-    .\logParser.ps1 -LogFilePath \
-C:\logs\example.log\
+    .\logParser.ps1 -LogFilePath \"C:\logs\example.log\"
 
 .NOTES
     Author: Your Name
@@ -18,28 +17,24 @@ C:\logs\example.log\
 #>
 
 param (
-    [string]
+    [string]$LogFilePath
 )
 
 function Parse-Log {
     param (
-        [string]
+        [string]$LogFilePath
     )
 
-    if (-Not (Test-Path )) {
-        Write-Error \Log
-file
-not
-found:
-\
+    if (-Not (Test-Path $LogFilePath)) {
+        Write-Error \"Log file not found: $LogFilePath\"
         return
     }
 
-     = Get-Content -Path 
-    foreach ( in ) {
+    $logContent = Get-Content -Path $LogFilePath
+    foreach ($line in $logContent) {
         # Add your log parsing logic here
-        Write-Output 
+        Write-Output $line
     }
 }
 
-Parse-Log -LogFilePath 
+Parse-Log -LogFilePath $LogFilePath" > logParser.ps1
