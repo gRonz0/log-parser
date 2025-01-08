@@ -29,7 +29,7 @@ This PowerShell script parses log files and extracts useful information based on
 
 ## Author
 
-Your Name
+Ihor N.
 
 ## Date
 
